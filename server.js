@@ -1,11 +1,15 @@
 const express = require('express')
 const mysql = require('mysql')
 const bodyParser= require('body-parser')
+var cors = require('cors')
+
 const { promisify } = require('util');
 
 app = express()
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
+app.use(cors())
+
 require('./routes/user.routes.js')(app);
 const connection = mysql.createConnection({
     host: 'localhost',

@@ -9,7 +9,7 @@ module.exports = function(app) {
      app.post('/user/addbeat', IsAuth,user.addBeats);
  
     //Retrieve all beats
-    app.get('/user/', user.allBeats);
+    app.get('/user/', IsAuth,user.allBeats);
 
     //User Login
     app.post('/user/login', user.login);
@@ -23,5 +23,10 @@ module.exports = function(app) {
     // followUser
     app.post('/user/unfollow',IsAuth, user.unfollowUser);*/
     
+    // LIKE 
+     app.post('/user/l',IsAuth,user.heart);
+
+    //Unlike
+    // app.post('/user/u',IsAuth,user.findByName)
    
 }

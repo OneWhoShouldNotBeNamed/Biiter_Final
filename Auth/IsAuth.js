@@ -1,3 +1,5 @@
+const jwt = require ('jsonwebtoken')
+
 module.exports= (req,res,next)=>{
   jwtKey='secretk3y'
     if (!req.headers['authorization']) {
@@ -8,6 +10,7 @@ module.exports= (req,res,next)=>{
         })
       }else{      
       let auth_id = req.headers['authorization'].split(' ')[1]
+      console.log(auth_id)
       if (!auth_id) {
         res.status(400).json({
           err: true,
